@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+    <h1>Notes</h1>
+</mat-toolbar>
+<div class="notes">
+
+    <div class="add-note">
+
+        <mat-icon>arrow_forward_ios</mat-icon>
+
+        <mat-form-field>
+            <mat-label>New Note</mat-label>
+            <input matInput type="text" [(ngModel)]="note">
+        </mat-form-field>
+
+        <button mat-mini-fab color="warn" aria-label="Add note" (click)="addNote()">
+            <mat-icon color="accent">add</mat-icon>
+        </button>
+
+    </div>
+
+    <mat-selection-list *ngFor="let note of notes">
+        <mat-list-option checkboxPosition="before" color="warn">
+            {{note}}
+        </mat-list-option >
+    </mat-selection-list>
+    
+</div>
