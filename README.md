@@ -1,4 +1,11 @@
-# TODOAppAngular
+# TODO - App - Angular
+
+## TODO in TODO (😅)
+- [ ] line-through on completed tasks
+- [ ] add a search bar
+- [ ] notebook design 
+
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
 
