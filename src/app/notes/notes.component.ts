@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
+import { MatSelectionList } from '@angular/material/list';
+import { throttleTime } from 'rxjs';
+import { Note } from '../model/note.interface';
+import { NotesService } from '../notes.service';
 
 @Component({
   selector: 'app-notes',
@@ -8,21 +11,44 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class NotesComponent implements OnInit {
 
-  notes: string[];
-  note: string = '';
+  @Input() notes: Note[] = [];
+  //newNoteTitle: string;
 
-  constructor() {
-    this.notes = [];
+  constructor(private noteService: NotesService) {
+
   }
 
   addNote() {
-    if (this.note) { 
-      this.notes.push(this.note);
-      this.note = '';
+    // if (this.newNoteTitle) {
+    //   this.notes.push(
+    //   //  new Note(this.newNoteTitle)
+    //   );
+    // }
+
+    // console.table(this.notes);
+  }
+
+  changeSelection(note: Note) {
+    if (note.selected) {
+      note.selected = false;
     }
+    else {
+      note.selected = true;
+    }
+    console.table(this.notes)
   }
 
   ngOnInit(): void {
+
+    this.noteService.getNotes().subscribe(
+      (notes) => {
+        this.notes = notes;
+      }
+
+
+
+    )
   }
+
 
 }

@@ -9,7 +9,8 @@
 
         <mat-form-field>
             <mat-label>New Note</mat-label>
-            <input matInput type="text" [(ngModel)]="note">
+            <input matInput type="text">
+            <!-- <input matInput type="text" [(ngModel)]="newNoteTitle"> -->
         </mat-form-field>
 
         <button mat-mini-fab color="warn" aria-label="Add note" (click)="addNote()">
@@ -18,10 +19,13 @@
 
     </div>
 
-    <mat-selection-list *ngFor="let note of notes">
-        <mat-list-option checkboxPosition="before" color="warn">
-            {{note}}
-        </mat-list-option >
+    <mat-selection-list *ngIf="notes.length > 0" #list>
+        <mat-list-option *ngFor="let note of notes" checkboxPosition="before" color="warn"
+            [value]="note.title" [ngClass]="{'stroke': note.selected}" [selected]="note.selected"
+            (click)="changeSelection(note)"
+            >
+            {{note.title}}
+        </mat-list-option>
     </mat-selection-list>
-    
+
 </div>

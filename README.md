@@ -1,9 +1,10 @@
 # TODO - App - Angular
 
 ## TODO in TODO (😅)
-- [ ] line-through on completed tasks
+- [X] line-through on completed tasks
 - [ ] add a search bar
 - [ ] notebook design 
+- [X] backend
 
 ---
 

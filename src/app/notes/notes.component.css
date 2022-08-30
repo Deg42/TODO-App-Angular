@@ -7,10 +7,18 @@
     align-items: center;
 }
 
-.add-note> * {
+.add-note>* {
     margin-left: 10px;
 }
 
 mat-list-option {
-    max-width: 33%;
+    display: block;
+    max-width: 500px;
+    white-space: nowrap;
+    border-bottom: 2px solid gray;
+}
+
+.stroke{
+    text-decoration: line-through;
+    color: gray;
 }
