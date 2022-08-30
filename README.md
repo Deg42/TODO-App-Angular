@@ -5,6 +5,7 @@
 - [ ] add a search bar
 - [ ] notebook design 
 - [X] backend
+- [ ] maybe dark-mode?
 
 ---
 

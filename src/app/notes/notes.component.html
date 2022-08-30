@@ -19,7 +19,7 @@
     </div>
 
     <mat-selection-list *ngIf="notes.length > 0" #list>
-        <mat-list-option *ngFor="let note of notes" checkboxPosition="before" color="warn" [value]="note.title"
+        <mat-list-option *ngFor="let note of notes" checkboxPosition="before" color="warn" [value]="note._id"
             [ngClass]="{'stroke': note.selected}" [selected]="note.selected" (click)="changeSelection(note)">
             {{note.title}}
         </mat-list-option>

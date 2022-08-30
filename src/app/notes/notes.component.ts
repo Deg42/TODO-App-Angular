@@ -26,18 +26,13 @@ export class NotesComponent implements OnInit {
         this.ngOnInit();
       }
     )
-    console.table(this.notes);
   }
 
 
   changeSelection(note: Note) {
-    if (note.selected) {
-      note.selected = false;
-    }
-    else {
-      note.selected = true;
-    }
-    console.table(this.notes)
+    note.selected ? note.selected = false : note.selected = true
+
+    this.noteService.putNote(note).subscribe();
   }
 
 
@@ -47,7 +42,8 @@ export class NotesComponent implements OnInit {
         this.notes = notes;
       }
     )
-  }
 
+    console.table(this.notes)
+  }
 
 }
