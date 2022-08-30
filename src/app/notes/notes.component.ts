@@ -12,21 +12,23 @@ import { NotesService } from '../notes.service';
 export class NotesComponent implements OnInit {
 
   @Input() notes: Note[] = [];
-  //newNoteTitle: string;
+  note = {} as Note;
 
-  constructor(private noteService: NotesService) {
-
-  }
+  constructor(private noteService: NotesService) { }
 
   addNote() {
-    // if (this.newNoteTitle) {
-    //   this.notes.push(
-    //   //  new Note(this.newNoteTitle)
-    //   );
-    // }
+    this.note.selected = false;
 
-    // console.table(this.notes);
+    this.noteService.postNote(
+      this.note
+    ).subscribe(
+      () => {
+        this.ngOnInit();
+      }
+    )
+    console.table(this.notes);
   }
+
 
   changeSelection(note: Note) {
     if (note.selected) {
@@ -38,15 +40,12 @@ export class NotesComponent implements OnInit {
     console.table(this.notes)
   }
 
-  ngOnInit(): void {
 
+  ngOnInit(): void {
     this.noteService.getNotes().subscribe(
       (notes) => {
         this.notes = notes;
       }
-
-
-
     )
   }
 
