@@ -20,8 +20,13 @@
 
     <mat-selection-list *ngIf="notes.length > 0" #list>
         <mat-list-option *ngFor="let note of notes" checkboxPosition="before" color="warn" [value]="note._id"
-            [ngClass]="{'stroke': note.selected}" [selected]="note.selected" (click)="changeSelection(note)">
-            {{note.title}}
+            [selected]="note.selected" (click)="changeSelection(note)">
+            <p [ngClass]="{'stroke': note.selected}">{{note.title}}</p>
+
+            <button mat-icon-button color="secondary" aria-label="Delete note">
+                <mat-icon>delete</mat-icon>
+            </button>
+
         </mat-list-option>
     </mat-selection-list>
 

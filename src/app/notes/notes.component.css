@@ -12,13 +12,21 @@
 }
 
 mat-list-option {
-    display: block;
+    flex-direction: column;
     max-width: 500px;
-    white-space: nowrap;
+    min-height: 48px;
+    height: auto !important;
     border-bottom: 2px solid gray;
 }
 
-.stroke{
+:host ::ng-deep .mat-list-text {
+    margin: 7px 0 !important;
+    align-items: center;
+    flex-direction: row !important;
+    justify-content: space-between;
+}
+
+.stroke {
     text-decoration: line-through;
     color: gray;
 }
