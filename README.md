@@ -6,6 +6,10 @@
 - [ ] notebook design 
 - [X] backend
 - [ ] maybe dark-mode?
+- [ ] loading screen
+- [ ] move elements
+- [X] comfirm delete note
+- [X] don't create an empty note
 
 ---
 

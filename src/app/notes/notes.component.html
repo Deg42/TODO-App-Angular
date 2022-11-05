@@ -23,11 +23,10 @@
             [selected]="note.selected" (click)="changeSelection(note)">
             <p [ngClass]="{'stroke': note.selected}">{{note.title}}</p>
 
-            <button mat-icon-button color="secondary" aria-label="Delete note">
+            <button mat-icon-button color="secondary" aria-label="Delete note" (click)="openDialog(note)">
                 <mat-icon>delete</mat-icon>
             </button>
 
         </mat-list-option>
     </mat-selection-list>
-
 </div>
