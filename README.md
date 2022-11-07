@@ -2,17 +2,23 @@
 
 ## TODO in TODO (😅)
 - [X] line-through on completed tasks
+- [X] add note when enter
 - [ ] add a search bar
 - [ ] notebook design 
 - [X] backend
 - [ ] maybe dark-mode?
-- [ ] loading screen
+- [X] loading screen
 - [ ] move elements
 - [X] comfirm delete note
 - [X] don't create an empty note
 
 ---
 
+## Deploy
+
+Application deployed in http://todo-deg42.surge.sh/ via [Surge](https://surge.sh/) 🦁🌊
+
+--- 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
 
 ## Development server

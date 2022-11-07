@@ -9,7 +9,7 @@
 
         <mat-form-field>
             <mat-label>New Note</mat-label>
-            <input matInput type="text" [(ngModel)]="note.title">
+            <input matInput type="text" [(ngModel)]="note.title" (keyup.enter)="addNote()">
         </mat-form-field>
 
         <button mat-mini-fab color="warn" aria-label="Add note" (click)="addNote()">
@@ -23,7 +23,7 @@
             [selected]="note.selected" (click)="changeSelection(note)">
             <p [ngClass]="{'stroke': note.selected}">{{note.title}}</p>
 
-            <button mat-icon-button color="secondary" aria-label="Delete note" (click)="openDialog(note)">
+            <button mat-icon-button color="secondary" aria-label="Delete note" (click)="openDialog(note, $event)">
                 <mat-icon>delete</mat-icon>
             </button>
 

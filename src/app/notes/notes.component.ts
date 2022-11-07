@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSelectionList } from '@angular/material/list';
-import { throttleTime } from 'rxjs';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { Note } from '../model/note.interface';
 import { NotesService } from '../notes.service';
@@ -20,17 +18,21 @@ export class NotesComponent implements OnInit {
   constructor(private noteService: NotesService, private dialog: MatDialog) { }
 
   addNote() {
-    let title: string = this.note.title.trim();
-    if (title.length){
-    this.note.selected = false;
-    this.noteService.postNote(
-      this.note
-    ).subscribe(
-      () => {
-        this.ngOnInit();
-      }
-    )
-  }}
+    this.note.title != null
+      ? this.note.title = this.note.title.trim()
+      : this.note.title;
+
+    if (this.note.title) {
+      this.note.selected = false;
+      this.noteService.postNote(
+        this.note
+      ).subscribe(
+        () => {
+          this.ngOnInit();
+        }
+      )
+    }
+  }
 
   changeSelection(note: Note) {
     note.selected ? note.selected = false : note.selected = true
@@ -45,7 +47,8 @@ export class NotesComponent implements OnInit {
     )
   }
 
-  openDialog(note: Note): void {
+  openDialog(note: Note, event: MouseEvent): void {
+    event.stopPropagation();
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '250px',
       data: note
