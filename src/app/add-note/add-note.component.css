@@ -1,0 +1,8 @@
+.add-note {
+    display: flex;
+    align-items: center;
+}
+
+.add-note > * {
+    margin-left: 10px;
+}

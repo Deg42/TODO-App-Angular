@@ -13,26 +13,10 @@ import { NotesService } from '../notes.service';
 export class NotesComponent implements OnInit {
 
   @Input() notes: Note[] = [];
+  filteredNotes: Note[]= [];
   note = {} as Note;
 
   constructor(private noteService: NotesService, private dialog: MatDialog) { }
-
-  addNote() {
-    this.note.title != null
-      ? this.note.title = this.note.title.trim()
-      : this.note.title;
-
-    if (this.note.title) {
-      this.note.selected = false;
-      this.noteService.postNote(
-        this.note
-      ).subscribe(
-        () => {
-          this.ngOnInit();
-        }
-      )
-    }
-  }
 
   changeSelection(note: Note) {
     note.selected ? note.selected = false : note.selected = true
@@ -40,9 +24,14 @@ export class NotesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.reloadNotes();
+  }
+
+  reloadNotes(): void {
     this.noteService.getNotes().subscribe(
       (notes) => {
         this.notes = notes;
+        this.filteredNotes = notes;
       }
     )
   }
@@ -59,6 +48,16 @@ export class NotesComponent implements OnInit {
         this.ngOnInit();
       }
     )
+  }
+
+
+  filterNotes(data: String) {
+    let regexp = new RegExp(data.toString(), "i");
+    if (data) {
+      this.filteredNotes = this.notes.filter((note) => regexp.test(note.title))
+    } else {
+      this.filteredNotes = this.notes
+    }
   }
 
 }

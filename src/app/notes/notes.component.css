@@ -1,14 +1,11 @@
+.toolbar {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+}
+
 .notes {
     padding: 1.25rem;
-}
-
-.add-note {
-    display: flex;
-    align-items: center;
-}
-
-.add-note>* {
-    margin-left: 10px;
 }
 
 mat-list-option {
@@ -30,3 +27,9 @@ mat-list-option {
     text-decoration: line-through;
     color: gray;
 }
+
+@media screen and (max-width: 425px) {
+    .toolbar {
+        flex-direction: column-reverse;
+    }
+  }

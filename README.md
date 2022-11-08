@@ -3,7 +3,7 @@
 ## TODO in TODO (😅)
 - [X] line-through on completed tasks
 - [X] add note when enter
-- [ ] add a search bar
+- [X] add a search bar
 - [ ] notebook design 
 - [X] backend
 - [ ] maybe dark-mode?

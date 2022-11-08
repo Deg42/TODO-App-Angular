@@ -1,0 +1,9 @@
+.searchBar {
+    display: flex;
+    align-items: center;
+}
+
+.searchBar>* {
+    margin-left: 10px;
+
+}

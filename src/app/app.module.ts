@@ -18,13 +18,17 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { NotesComponent } from './notes/notes.component';
 import { SpinnerInterceptorService } from './spinner-interceptor.service';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { AddNoteComponent } from './add-note/add-note.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesComponent,
     DeleteDialogComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SearchBarComponent,
+    AddNoteComponent
   ],
   imports: [
     BrowserModule,
