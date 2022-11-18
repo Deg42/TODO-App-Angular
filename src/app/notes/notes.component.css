@@ -1,19 +1,33 @@
-.toolbar {
+main {
+    background-color: #feff9c;
+}
+
+.action-bar {
     display: flex;
-    margin-top: 20px;
+    padding: 20px;
     justify-content: space-around;
+}
+
+hr {
+    height: 12px;
+    border: 0;
+    margin: 0;
+    box-shadow: inset 0 12px 12px -12px #00000080;
 }
 
 .notes {
     padding: 1.25rem;
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 25px;
 }
 
 mat-list-option {
-    flex-direction: column;
     max-width: 500px;
     min-height: 48px;
     height: auto !important;
-    border-bottom: 2px solid gray;
+    border-bottom: 1px dotted #808080;
+    border-left: 4px double #ff0000;
 }
 
 :host ::ng-deep .mat-list-text {
@@ -21,15 +35,20 @@ mat-list-option {
     align-items: center;
     flex-direction: row !important;
     justify-content: space-between;
+
 }
 
 .stroke {
     text-decoration: line-through;
-    color: gray;
+    color: #808080;
 }
 
 @media screen and (max-width: 425px) {
-    .toolbar {
-        flex-direction: column-reverse;
+    .action-bar {
+        flex-direction: column;
     }
-  }
+
+    .notes {
+        grid-template-columns: 1fr;
+    }
+}

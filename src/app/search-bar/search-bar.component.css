@@ -1,9 +1,12 @@
-.searchBar {
+.search-bar {
     display: flex;
     align-items: center;
 }
 
-.searchBar>* {
+.search-bar>* {
     margin-left: 10px;
+}
 
+mat-label {
+    color: rgb(53, 53, 53);
 }

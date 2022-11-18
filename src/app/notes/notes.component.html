@@ -2,20 +2,22 @@
     <h1>Notes</h1>
 </mat-toolbar>
 
-<div class="toolbar">
+<main>
+<div class="action-bar">
     <app-add-note (reloadNotes)="reloadNotes()"></app-add-note>
-    <app-search-bar (searchCriteria)="filterNotes($event)" ></app-search-bar>
+    <app-search-bar (searchCriteria)="filterNotes($event)"></app-search-bar>
 </div>
 
-<div class="notes">
-    <mat-selection-list *ngIf="notes.length > 0" #list>
-        <mat-list-option *ngFor="let note of filteredNotes" checkboxPosition="before" color="warn" [value]="note._id"
-            [selected]="note.selected" (click)="changeSelection(note)">
-            <p [ngClass]="{'stroke': note.selected}">{{note.title}}</p>
+<hr>
 
-            <button mat-icon-button color="secondary" aria-label="Delete note" (click)="openDialog(note, $event)">
-                <mat-icon>delete</mat-icon>
-            </button>
-        </mat-list-option>
-    </mat-selection-list>
-</div>
+<mat-selection-list *ngIf="notes.length > 0" #list class="notes">
+    <mat-list-option *ngFor="let note of filteredNotes" checkboxPosition="before" color="warn" [value]="note._id"
+        [selected]="note.selected" (click)="changeSelection(note)">
+        <p [ngClass]="{'stroke': note.selected}">{{note.title}}</p>
+
+        <button mat-icon-button color="secondary" aria-label="Delete note" (click)="openDialog(note, $event)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-list-option>
+</mat-selection-list>
+</main>

@@ -4,7 +4,7 @@
 - [X] line-through on completed tasks
 - [X] add note when enter
 - [X] add a search bar
-- [ ] notebook design 
+- [X] notebook design 
 - [X] backend
 - [ ] maybe dark-mode?
 - [X] loading screen

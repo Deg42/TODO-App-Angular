@@ -3,6 +3,10 @@
     align-items: center;
 }
 
-.add-note > * {
+.add-note>* {
     margin-left: 10px;
+}
+
+mat-label {
+    color: #353535;
 }
